@@ -40,14 +40,11 @@ WHERE country IN ("Afghanistan", "Bangladesh", "China");
 ALTER TABLE actor
     ADD middle_name VARCHAR(45);
 
-??? Cannot re-arrange columns
-
 
 -- 3b. You realize that some of these actors have tremendously long last names. Change the data type of the middle_name column to blobs.
 ALTER TABLE actor
-    ALTER COLUMN middle_name BLOB;
+    MODIFY COLUMN middle_name BLOB;
 
-??? Error Code: 1064
 
 -- 3c. Now delete the middle_name column.
 ALTER TABLE actor
@@ -93,7 +90,6 @@ CREATE TABLE address (
     PRIMARY KEY (address_id)
 );
 
-??? Create a Database and/or Table?
 
 -- 6a. Use JOIN to display the first and last names, as well as the address, of each staff member. Use the tables staff and address:
 SELECT s.first_name, s.last_name, a.address, c.city, cy.country
